@@ -1,37 +1,47 @@
 import books from "../data/books";
+import { useState, useEffect } from "react";
 
 function Admin() {
+  const [dataBooks, setDataBooks] = useState([]);
+
+  useEffect(() => {
+    setDataBooks(dataBooks);
+  }, []);
+
   return (
     <main>
-     <div className="middle-container">
+      <div className="middle-container">
         <div className="center-table">
           <header>
-        <h1 className="about-code-squad">ADMIN PAGE</h1>
-        </header>
-        <button className="add-comic-button">ADD NEW COMIC</button>
-        
-        <div>
-        <table className="table-borders">
-       <thead>
-        <tr className="table-title">
-          <th className="table-borders">Comic Title</th>
-          <th className="table-borders">EDIT</th>
-          <th className="table-borders">Delete</th>
-        </tr>
-      </thead>
+            <h1 className="about-code-squad">ADMIN PAGE</h1>
+          </header>
+          <button className="add-comic-button">ADD NEW COMIC</button>
 
-      <tbody className="tbody">
+          <div>
+            <table className="table-borders">
+              <thead>
+                <tr className="table-title">
+                  <th className="table-borders">Comic Title</th>
+                  <th className="table-borders">EDIT</th>
+                  <th className="table-borders">Delete</th>
+                </tr>
+              </thead>
 
-        {books.map((book)=> (
-          <tr key={book.id}> 
-          <td> {book.title} </td>
-          <td><button className="edit-button">EDIT</button></td>
-         <td><button className="delete-button">Delete</button></td>
-          </tr>
-        ))}
-        </tbody>
+              <tbody className="tbody">
+                {books.map((book) => (
+                  <tr key={book.id}>
+                    <td> {book.title} </td>
+                    <td>
+                      <button className="edit-button">EDIT</button>
+                    </td>
+                    <td>
+                      <button className="delete-button">Delete</button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
 
-  {/* //       <td>Batman: The Dark Knight Returns</td>
+              {/* //       <td>Batman: The Dark Knight Returns</td>
   //       <td><button className="edit-button">EDIT</button></td>
   //       <td><button className="delete-button">Delete</button></td>
   //     </tbody>
@@ -91,10 +101,10 @@ function Admin() {
   //       <td><button className="delete-button">Delete</button></td>
   //     </tbody>
   */}
-    </table>
-  </div>
-  </div>
-  </div> 
+            </table>
+          </div>
+        </div>
+      </div>
     </main>
   );
 }

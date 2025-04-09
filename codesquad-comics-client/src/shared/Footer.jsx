@@ -38,7 +38,7 @@ function Footer() {
           <div className="image-box">
           <h3 className="visit-us">A PRODUCT OF</h3>
           <a href="http://codesquad.org/" target="_blank">
-          <img className="footer-image" src="./Public/images/CodeSquad-logo-b.png" alt="footer logo" />
+          <img className="footer-image" src="./images/CodeSquad-logo.jpg" alt="footer logo" />
           </a>
       </div>
       </div>
