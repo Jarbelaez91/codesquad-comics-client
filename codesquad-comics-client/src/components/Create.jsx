@@ -1,17 +1,34 @@
+import { useEffect } from "react";
+
 function Create() {
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    const body= { 
+      title: e.target.title.value,
+      author: e.target.author.value,
+      publisher: e.target.publisher.value,
+      synopsis: e.target.synopsis.value,
+      genre: e.target.genre.value,
+      rating: e.target.rating.value,
+      pages: e.target.pages.value
+    }
     console.log(
-      "form was submitted",
-      e.target.title.value,
-      e.target.author.value,
-      e.target.publisher.value,
-      e.target.title.value,
-      e.target.genre.value,
-      e.target.rating.value,
-      e.target.pages.value
-    );
+      "form was submitted",body
+      );
+      
+      fetch ("https://course-project-codesquad-comics-server.onrender.com/api/books/create", {
+        method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify (body), })
+    .then (res => res.json())
+    .then ((result) => console.log ("form submitted 2",result))
+    .catch ((error) => console.log ("try again",error))
   };
+  
+
+ 
+
   return (
     <main>
       <div className="middle-container">
@@ -62,7 +79,7 @@ function Create() {
             <input type="text" name="genre" id="genre" placeholder="Genre" />
           </div>
           <div className="form-lines">
-            <label className="labels" for="pages">
+            <label className="labels" htmlFor="pages">
               {" "}
               Number of Pages
             </label>

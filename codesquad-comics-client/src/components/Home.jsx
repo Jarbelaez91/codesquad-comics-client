@@ -5,7 +5,12 @@ function Home() {
   const [dataBooks, setDataBooks] = useState([]);
 
   useEffect(() => {
-    setDataBooks(books);
+    fetch ("https://course-project-codesquad-comics-server.onrender.com/api/books")
+    .then (res => res.json())
+    .then (data => setDataBooks (data))
+    .catch ((error) => {
+      console.error("try again", error)
+    })
   }, []);
 
   return (
@@ -18,23 +23,6 @@ function Home() {
               src="./Public/images/CodeSquad-Comics-logo.png"
               alt="Home"
             />
-            <nav>
-              <div>
-                <i className="fa-solid fa-bars hamburger-menu"></i>
-                <ul className="nav-links">
-                  <li className="link-li">
-                    {" "}
-                    <a href="#"> Home </a>{" "}
-                  </li>
-                  <li className="link-li">
-                    <a href="#"> About</a>
-                  </li>
-                  <li className="link-li">
-                    <a href="#"> Login</a>
-                  </li>
-                </ul>
-              </div>
-            </nav>
           </div>
         </a>
         <div className="codesquad-comics">
@@ -78,98 +66,6 @@ function Home() {
                 </p>
               </div>
             ))}
-
-            {/* <div className="comic-cover-space">
-        <a href="#"> <img src="./public/images/watchmen.jpg" alt="watchmen"/> </a>
-        <p>Watchmen</p>
-        <p>By Alan Moore</p>
-        <p>5 Stars</p>
-        <p><a href="#" className="detail-link" > Details </a></p>
-        </div>
-        
-        <div className="comic-cover-space">
-        <a href="#"> <img src="./public/images/hunter-x-hunter.jpg" alt="hunter-x-hunter"/> </a>
-        <p>Hunter X Hunter Vol 1</p>
-        <p>By Yoshihiro Togashi</p>
-        <p>5 Stars</p>
-        <p><a href="#" className="detail-link" > Details </a></p>
-        </div>
-
-
-        <div className="comic-cover-space">
-        <a href="#"> <img src="./public/images/lumberjanes.jpg" alt="lumberjanes"/> </a>
-        <p>Lumberjanes Vol. 1</p>
-        <p>By Noelle Stevenson</p>
-        <p>4 Stars</p>
-        <p><a href="#" className="detail-link" > Details </a></p>
-        </div>
-
-        <div className="comic-cover-space">
-        <a href="#"> <img src="./public/images/one-piece.jpg" alt="one-piece"/> </a>
-        <p>One Piece, Vol. 1: Romance Dawn</p>
-        <p>By Eiichiro Oda</p>
-        <p>5 Stars</p>
-        <p><a href="#" className="detail-link" > Details </a></p>
-        </div>
-
-
-        <div className="comic-cover-space">
-        <a href="#"> <img src="./public/images/wake.jpg" alt="wake" /> </a>
-        <p>Wake: The Hidden History of Women-Led Slave Revolts</p>
-        <p>By Rebecca Hall</p>
-        <p>4 Stars</p>
-        <p><a href="#" className="detail-link" > Details </a></p>
-        </div>
-
-        <div className="comic-cover-space">
-        <a href="#"> <img src="./public/images/black-panther.jpg" alt="black-panther"/> </a>
-        <p>Black Panther: A Nation Under Our Feet Book 1</p>
-        <p>By Ta-Nehisi Coates</p>
-        <p>3 Stars</p>
-        <p><a href="#" className="detail-link" > Details </a></p>
-        </div>
-
-        <div className="comic-cover-space">
-        <a href="#"> <img src="./public/images/the-walking-dead.jpg" alt="the-walking-dead"/> </a> 
-        <p>The Walking Dead, Vol. 1: Days Gone Bye</p>
-        <p>By Robert Kirkman</p>
-        <p>5 Stars</p>
-        <p><a href="#" className="detail-link" > Details </a></p>
-        </div>
-
-        <div className="comic-cover-space">
-        <a href="#"> <img src="./public/images/march.jpg" alt="march"/> </a>
-        <p>March: Book One</p>
-        <p>By John Lewis</p>
-        <p>4 Stars</p>
-        <p><a href="#" className="detail-link" > Details </a></p>
-        </div>
-
-        <div className="comic-cover-space">
-        <a href="#"> <img src="./public/images/batman.jpg" alt="batman"/> </a>
-        <p>Batman: The Dark Knight Returns</p>
-        <p>By Frank Miller</p>
-        <p>3 Stars</p>
-        <p><a href="batman.html" className="detail-link"> Details </a></p>
-        <a href="batman.html"> </a>
-        </div>
-
-
-        <div className="comic-cover-space">
-          <a href="#"> <img src="./public/images/queer.jpg" alt="queer"/> </a>
-        <p>Queer: A Graphic History</p>
-        <p>By Meg-John Baker</p>
-        <p>4 Stars</p>
-        <p><a href="#" className="detail-link" > Details </a></p>
-        </div>
-
-        <div className="comic-cover-space">
-        <a href="#"> <img src="./public/images/parable-of-the-sower.jpg" alt="parable-of-the-sower"/> </a>
-        <p>Parable of the Sower</p>
-        <p>By Octavia Butler</p>
-        <p>4 Stars</p>
-        <p><a href="#" className="detail-link" > Details </a></p>
-        </div> */}
 
             <div className="display-more-container">
               <button className="display-more">DISPLAY MORE</button>

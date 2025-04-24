@@ -1,12 +1,38 @@
 import books from "../data/books";
+
 import { useState, useEffect } from "react";
 
 function Admin() {
   const [dataBooks, setDataBooks] = useState([]);
 
   useEffect(() => {
-    setDataBooks(dataBooks);
+    fetch ("https://course-project-codesquad-comics-server.onrender.com/api/books")
+    .then (res => res.json())
+    .then (data => {
+      console.log("Fetched data:", data);
+      setDataBooks (data.data.books)
+    })
+    .catch ((error) => {
+      console.error("try again", error)
+    })
   }, []);
+
+  const handleDelete = (bookId) => {
+    fetch (`https://course-project-codesquad-comics-server.onrender.com/api/books/delete/${bookId}`,{
+      method: "DELETE",
+    })
+    .then ((res) => res.json())
+    .then(() => {
+      console.log("success")
+      setDataBooks ((preBooks) => preBooks.filter((book)=> book.id !== bookId))
+    })
+    .catch ((error) => {
+      console.error("try again", error)
+    })
+  }
+
+
+
 
   return (
     <main>
@@ -35,72 +61,12 @@ function Admin() {
                       <button className="edit-button">EDIT</button>
                     </td>
                     <td>
-                      <button className="delete-button">Delete</button>
+                      <button className="delete-button" onClick={() => handleDelete(book.id)} 
+                      >Delete</button>
                     </td>
                   </tr>
                 ))}
               </tbody>
-
-              {/* //       <td>Batman: The Dark Knight Returns</td>
-  //       <td><button className="edit-button">EDIT</button></td>
-  //       <td><button className="delete-button">Delete</button></td>
-  //     </tbody>
-  //     <tbody>
-  //       <td>Black Panther: A Nation Under Our Feet Book 1</td>
-  //       <td><button className="edit-button">EDIT</button></td>
-  //       <td><button className="delete-button">Delete</button></td>
-  //     </tbody>
-  //     <tbody>
-  //       <td>Fun Home: A Family Tragicomic</td>
-  //       <td><button className="edit-button">EDIT</button></td>
-  //       <td><button className="delete-button">Delete</button></td>
-  //     </tbody>
-  //     <tbody>
-  //       <td>Hunter X Hunter Vol 1</td>
-  //       <td><button className="edit-button">EDIT</button></td>
-  //       <td><button className="delete-button">Delete</button></td>
-  //     </tbody>
-  //     <tbody>
-  //       <td>Lumberjanes Vol. 1</td>
-  //       <td><button className="edit-button">EDIT</button></td>
-  //       <td><button className="delete-button">Delete</button></td>
-  //     </tbody>
-  //     <tbody>
-  //       <td>March: Book One</td>
-  //       <td><button className="edit-button">EDIT</button></td>
-  //       <td><button className="delete-button">Delete</button></td>
-  //     </tbody>
-  //     <tbody>
-  //       <td>One Piece, Vol. 1: Romance Dawn</td>
-  //       <td><button className="edit-button">EDIT</button></td>
-  //       <td><button className="delete-button">Delete</button></td>
-  //     </tbody>
-  //     <tbody>
-  //       <td>Parable of the Sower</td>
-  //       <td><button className="edit-button">EDIT</button></td>
-  //       <td><button className="delete-button">Delete</button></td>
-  //     </tbody>
-  //     <tbody>
-  //       <td>Queer: A Graphic History</td>
-  //       <td><button className="edit-button">EDIT</button></td>
-  //       <td><button className="delete-button">Delete</button></td>
-  //     </tbody>
-  //     <tbody>
-  //       <td>The Walking Dead, Vol. 1: Days Gone Bye</td>
-  //       <td><button className="edit-button">EDIT</button></td>
-  //       <td><button className="delete-button">Delete</button></td>
-  //     </tbody>
-  //     <tbody>
-  //       <td>Wake: The Hidden History of Women-Led Slave Revolts</td>
-  //       <td><button className="edit-button">EDIT</button></td>
-  //       <td><button className="delete-button">Delete</button></td>
-  //     </tbody>
-  //     <tbody>
-  //       <td>Watchmen</td>
-  //       <td><button className="edit-button">EDIT</button></td>
-  //       <td><button className="delete-button">Delete</button></td>
-  //     </tbody>
-  */}
             </table>
           </div>
         </div>
