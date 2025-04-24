@@ -1,4 +1,27 @@
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+
 function Header({ user, setUser }) {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    fetch("https://course-project-codesquad-comics-server.onrender.com/logout", {
+      method: "POST",
+    })
+    .then((res)=> res.json())
+    .then ((result) => {
+      console.log("success", result)
+      setUser({})
+      localStorage.removeItem("user")
+      navigate("/admin")
+    })
+    .catch((error) => console.log("try again", error));
+    navigate("/admin")
+
+  }
+
+
+
   return (
       <header>
         <nav>
@@ -6,13 +29,16 @@ function Header({ user, setUser }) {
             <i className="fa-solid fa-bars hamburger-menu"></i>
             <ul className="nav-links">
               <li className="link-li">
-                <a href="index.html"> Home</a>
+              <Link to="/">Home</Link>
               </li>
               <li className="link-li">
-                <a href="about.html"> About</a>
+              <Link to="/about">ABOUT</Link>
               </li>
               <li className="link-li">
-                <a href="login.html"> Login</a>
+                <Link to="/login"> Login</Link>
+              </li>
+              <li className="link-li">
+                <a href="/#" onClick={handleLogout}> Logout</a>
               </li>
               {user}
               {setUser}
