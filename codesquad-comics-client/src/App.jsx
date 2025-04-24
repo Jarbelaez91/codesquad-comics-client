@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
+import './index.css'
 import About from "./components/About";
 import Admin from "./components/Admin";
 import Create from "./components/Create";

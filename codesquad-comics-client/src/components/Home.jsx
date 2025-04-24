@@ -1,3 +1,5 @@
+import "../App.css";
+
 import books from "../data/books";
 import { useState, useEffect } from "react";
 
@@ -20,7 +22,7 @@ function Home() {
           <div className="logo-container">
             <img
               className="logo-image"
-              src="./Public/images/CodeSquad-Comics-logo.png"
+              src="./images/CodeSquad-Comics-logo.jpg"
               alt="Home"
             />
           </div>

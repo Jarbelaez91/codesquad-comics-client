@@ -40,3 +40,465 @@
 .read-the-docs {
   color: #888;
 }
+:root{
+  --blue: #063C5E;
+  --teal: #006B6B;
+  --light-teal: #009E9E;
+  --yellow: #FCCF14;
+  --white: #FFFFFF;
+  --grey: grey;
+  --black: black;
+  --main-font: 'Fredericka the Great', cursive;
+  --other-font: 'Open Sans', sans-serif;
+}
+
+h1,h2,h3,.logo-container,footer{
+  font-family:var(--main-font)
+}
+h1{
+  font-size: 2rem;
+}
+p{
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 1em;
+}
+
+html{
+margin:0;
+padding: 0;
+box-sizing: border-box;
+}
+
+
+body {
+  width: 100%;
+  margin: 0;
+  overflow-x: hidden; 
+  background: linear-gradient(to top,var(--teal) 10%, var(--light-teal) 90%);
+  box-sizing: border-box;
+  font-family: var(--other-font);
+}
+
+*{box-sizing: border-box;}
+
+ul{
+  padding-inline-start: 0;
+}
+
+/* nav{
+  text-align: left;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+} */
+
+a{
+  color:var(--white)
+}
+td{
+  border: 1px solid var(--var(--black));
+  padding-left: 10px;
+
+}
+
+tbody:nth-child(odd){
+  background-color: var(--grey);
+  text-align: left;
+}
+
+tbody:nth-child(even){
+  text-align: left;
+}
+
+
+.logo-container{
+width:100%;
+height:auto;
+background-color: var(--blue);
+}
+
+.logo-image{
+width: 300px;
+height: auto;
+object-fit: cover;
+
+}
+
+
+.about-code-squad{
+  font-size: 36px;
+  color: var(--blue);
+  text-align: center;
+}
+
+.about-paragraph{
+  font-size: 1.4rem;
+}
+
+.collection-details{
+  text-align: center;
+  color:var(--blue);
+  width: 100%;
+}
+
+.bottom-half{
+  background-color: var(--blue);
+  color: var(--white);
+  border-top: 5px solid var(--yellow);
+  padding-left: 5px;
+  display:flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  
+}
+
+.bottom-half h3{
+  font-size: 14px;
+}
+
+.visit-us{
+  color: var(--yellow);
+  width: 180px;
+}
+
+.follow-us{
+  display: flex;
+  color: var(--yellow);
+  width: 180px;
+}
+
+
+
+.directions{
+  font-size: 14px;
+}
+
+
+.footer-image{
+  display: flex;
+  width: 150px;
+}
+
+
+.middle-container{
+  border: 5px solid var(--blue);
+  background-position: center center;
+  margin: 10vh auto;
+  height: 10%;
+  width: 70%;
+  background-color: var(--white);
+  padding: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.middle-container img{
+  width: 200px;
+  height: auto;
+}
+
+
+.link-alignment{
+  display: block;
+  list-style:none
+}
+
+
+
+.link-social{
+  margin: 5px;
+  display: block;
+ 
+}
+
+.social-media{
+  display: block
+}
+
+
+.nav-links{
+  padding-bottom: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 20px;
+  justify-content: flex-end;
+
+
+}
+
+.display-more-container{
+  display: flex;
+  justify-content: center;
+  height: 20%;
+  width: 100%;
+}
+
+.display-more{
+  margin-bottom: 10px;
+  background-color: var(--yellow);
+}
+
+.detail-link{
+  color: var(--blue);
+  text-decoration: underline;
+}
+
+.detail-link:hover{
+  color: var(--teal);
+  font-weight: bold;
+}
+
+.detail-link:visited{
+  color: var(--blue);
+}
+
+.detail-link:active{
+  color: var(--blue);
+  font-weight: bold;
+  background-color: var(--yellow);
+}
+
+
+.card{
+  border: solid 5px var(--yellow);
+  background-position: center center;
+  margin: 10vh auto;
+  width: 30%;
+  max-width: 30%;
+  border-radius: 40px;
+
+}
+
+
+.comic-card{
+  background-position: center ;
+  border-radius: 37px;
+  background-color: var(--blue);
+  padding-top: 10px;
+}
+
+.batman-logo-container{
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  
+
+}
+
+.batman-logo{
+  width: 80%;
+  height: auto;
+  background-position: center;
+  border-radius: 40px;
+  border: solid 1px var(--white)
+}
+
+.info-container{
+  background-color: var(--white);
+  border-top: 5px solid var(--yellow);
+  padding: 9px;
+  border-radius: 0 0 30PX 30PX ;
+}
+
+.comic-title{
+  color: var(--yellow);
+  text-align: center;
+}
+
+.bold-title{
+  color: var(--teal);
+  text-decoration: underline;
+}
+
+.form-lines{
+  margin-bottom: 15px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  
+
+}
+
+.labels{
+ display: block;
+ text-align: right;
+ width: 200px;
+ margin-right: 40px;
+}
+
+.form-alignment{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+  height: auto;
+}
+
+.footer-alignment{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  background-color: var(--blue);
+  width: 100%;
+
+}
+
+.footer-box{
+  margin-right: 4em;
+  margin-left: 4em;
+}
+
+.image-box{
+  display: inline-block;
+}
+
+.link-li{
+ list-style-type: none ;
+ display: flex;
+ justify-content: space-between;
+ padding: 0 5em 0 5em;
+}
+
+
+.add-comic-button{
+  background-color: var(--yellow);
+  width: 20%;
+  display: flex;
+  justify-content: center;
+}
+
+.table-borders{
+  border-collapse: collapse;
+  padding: 10px;
+  flex-direction: column;
+  width: 100%;
+}
+
+.edit-button{
+  background-color: var(--blue);
+  color: var(--white);
+  width: 70px;
+  margin: 10px;
+}
+
+.delete-button{
+  background-color: var(--yellow);
+  width: 70px;
+  margin: 10px;
+}
+
+.table-title{
+  background-color:var(--grey);
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  
+ 
+}
+
+.center-table{
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+}
+
+.submit-button-div{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+}
+.submit-button{
+  background-color: var(--yellow);
+}
+
+.submit-button-container{
+  width: 100%;
+}
+
+
+.codesquad-comics{
+  margin-bottom: 20px;
+  border: 5px solid var(--blue);
+  background-position: center center;
+  margin: 10vh auto;
+  height: 100%;
+  width: 70%;
+  background-color: var(--white);
+  padding: 25px;
+  align-items: center;
+
+}
+
+.comics{
+  text-align: center;
+  color: var(--blue);
+  display: flex;
+  justify-content: center;
+  height: 15%;
+  width: 100%;
+}
+
+.comic-cover{
+  display: flex;
+  height: 20%;
+  width: 100%;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.comic-cover-space{
+  display: flex;
+  flex-direction: column;
+  height: 10%;
+  width: 25%;
+  align-items: center;
+
+}
+
+.hamburger-menu{
+  display: none;
+}
+
+
+/* Media version*/
+
+@media screen and (min-width:320px) and (max-width:768px) {
+  .nav-links {
+      display: none;
+  }
+
+  .hamburger-menu{
+      display: block;
+  }
+
+  .bottom-half{
+      display: flex;
+  }
+
+  .footer-box{
+    flex-direction: column;
+  }
+
+  .comic-cover{
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .comic-cover-space{
+      width: 100%;
+      border-bottom: var(--blue) solid 2px;
+      margin-bottom: 20px;
+  }
+  
+}
+

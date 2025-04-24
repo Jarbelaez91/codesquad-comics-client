@@ -1,4 +1,6 @@
 import books from "../data/books";
+import "../App.css";
+
 
 import { useState, useEffect } from "react";
 
