@@ -1,13 +1,32 @@
+import { useNavigate } from "react-router-dom";
+
 function Signup({ user, setUser }) {
+  const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(
-      "form was submitted",
-      e.target.firstName.value,
-      e.target.lastName.value,
-      e.target.email.value,
-      e.target.password.value
-    );
+    const body = {
+      firstName: e.target.firstName.value,
+      lastName: e.target.lastName.value,
+      email: e.target.email.value,
+      password: e.target.password.value,
+    };
+    console.log("form was submitted");
+    fetch(
+      "https://course-project-codesquad-comics-server.onrender.com/signup",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body),
+      }
+    )
+      .then((res) => res.json())
+      .then((result) => {
+        console.log("form submitted 2", result);
+        setUser(result);
+        localStorage.setItem("user", JSON.stringify(result));
+        navigate("/admin");
+      })
+      .catch((error) => console.log("try again", error));
   };
 
   return (
