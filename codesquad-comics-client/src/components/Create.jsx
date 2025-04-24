@@ -1,6 +1,9 @@
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Create() {
+  const navigate = useNavigate()
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -20,9 +23,12 @@ function Create() {
       fetch ("https://course-project-codesquad-comics-server.onrender.com/api/books/create", {
         method: "POST",
     headers: {"Content-Type": "application/json"},
-    body: JSON.stringify (body), })
-    .then (res => res.json())
-    .then ((result) => console.log ("form submitted 2",result))
+    body: JSON.stringify (body)})
+
+    .then ((res) => res.json())
+    .then ((result) => { console.log ("form submitted 2",result); 
+    navigate("/admin")
+      })
     .catch ((error) => console.log ("try again",error))
   };
   
