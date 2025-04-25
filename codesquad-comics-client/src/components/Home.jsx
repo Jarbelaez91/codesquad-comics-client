@@ -17,16 +17,6 @@ function Home() {
 
   return (
     <main>
-      <div>
-        <a href="index.html">
-          <div className="logo-container">
-            <img
-              className="logo-image"
-              src="./images/CodeSquad-Comics-logo.jpg"
-              alt="Home"
-            />
-          </div>
-        </a>
         <div className="codesquad-comics">
           <header>
             <h1 className="comics"> CODESQUAD COMICS </h1>
@@ -54,16 +44,13 @@ function Home() {
           <div className="comic-cover">
             {books.map((book) => (
               <div key={book.id} className="comic-cover-space">
-                <a href="#">
                   <img src={`/images/${book.imageUrl}`} alt={book.title} />
-                </a>
                 <p>{book.title}</p>
                 <p>{book.author}</p>
                 <p>{book.rating}</p>
                 <p>
                   <a href="#" className="detail-link">
-                    {" "}
-                    Details{" "}
+                    Details
                   </a>
                 </p>
               </div>
@@ -72,7 +59,6 @@ function Home() {
             <div className="display-more-container">
               <button className="display-more">DISPLAY MORE</button>
             </div>
-          </div>
         </div>
       </div>
     </main>
