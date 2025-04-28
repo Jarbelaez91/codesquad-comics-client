@@ -57,29 +57,61 @@ function Update() {
 
   return (
     <main>
-      <div className="middle-container">
-        <div className="comics">
+      <div style={{border: "5px solid var(--blue)",
+  backgroundPosition: "center center",
+  margin: "10vh auto",
+  height: "10%",
+  width: "70%",
+  backgroundColor: "var(--white)",
+  padding: "5px",
+  display: "flex",
+  flexWrap: "wrap",
+  justifyContent: "center"}}>
+        <div style={{
+    textAlign: 'center',
+    color: 'var(--blue)',
+    display: 'flex',
+    justifyContent: 'center',
+    height: '15%',
+    width: '100%',
+  }}>
           <header>
-            <h1 className="comics">UPDATE COMICS</h1>
+            <h1 style={{
+    textAlign: 'center',
+    color: 'var(--blue)',
+    display: 'flex',
+    justifyContent: 'center',
+    height: '15%',
+    width: '100%',
+  }}>UPDATE COMICS</h1>
           </header>
         </div>
 
         <form onSubmit={handleSubmit} className="form-alignment">
-          <div className="form-lines">
+          <div style={{ marginBottom: "15px",
+  width: "100%",
+  display: "flex",
+  justifyContent: "center"}}>
             <label className="labels" htmlFor="title">
               {" "}
               Title
             </label>
             <input type="text" name="title" id="title" placeholder="Title" />
           </div>
-          <div className="form-lines">
+          <div style={{marginBottom: "15px",
+  width: "100%",
+  display: "flex",
+  justifyContent: "center"}}>
             <label className="labels" htmlFor="author">
               {" "}
               Author
             </label>
             <input type="text" name="author" id="author" placeholder="Author" />
           </div>
-          <div className="form-lines">
+          <div style={{marginBottom: "15px",
+  width: "100%",
+  display: "flex",
+  justifyContent: "center"}}>
             <label className="labels" htmlFor="publisher">
               Publisher
             </label>
@@ -97,14 +129,20 @@ function Update() {
               <option value="viz-media-llc">VIZ Media LLC</option>
             </select>
           </div>
-          <div className="form-lines">
+          <div style={{marginBottom: "15px",
+  width: "100%",
+  display: "flex",
+  justifyContent: "center"}}>
             <label className="labels" htmlFor="genre">
               {" "}
               Genre
             </label>
             <input type="text" name="genre" id="genre" placeholder="Genre" />
           </div>
-          <div className="form-lines">
+          <div style={{marginBottom: "15px",
+  width: "100%",
+  display: "flex",
+  justifyContent: "center"}}>
             <label className="labels" htmlFor="pages">
               {" "}
               Number of Pages
@@ -116,7 +154,10 @@ function Update() {
               placeholder="number of pages"
             />
           </div>
-          <div className="form-lines">
+          <div style={{marginBottom: "15px",
+  width: "100%",
+  display: "flex",
+  justifyContent: "center"}}>
             <label className="labels" htmlFor="rating">
               {" "}
               Rating
@@ -124,7 +165,10 @@ function Update() {
             <input type="number" name="rating" id="rating" />
           </div>
 
-          <div className="form-lines">
+          <div style={{marginBottom: "15px",
+  width: "100%",
+  display: "flex",
+  justifyContent: "center"}}>
             <label className="labels" htmlFor="multi-line-text">
               Synopsis
             </label>
