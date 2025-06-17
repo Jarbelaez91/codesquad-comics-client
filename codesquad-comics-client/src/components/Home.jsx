@@ -1,6 +1,6 @@
 import "../App.css";
 
-import books from "../data/books";
+// import books from "../data/books";
 import { useState, useEffect } from "react";
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
@@ -10,13 +10,15 @@ function Home() {
   const [dataBooks, setDataBooks] = useState([]);
 
   useEffect(() => {
-fetch(`${API_BASE_URL}/api/books`)
-    .then (res => res.json())
-    .then (data => setDataBooks (data))
-    .catch ((error) => {
-      console.error("try again", error)
+  fetch(`${API_BASE_URL}/api/books`)
+    .then(res => res.json())
+    .then(data => {
+      setDataBooks(data.data.books); 
     })
-  }, []);
+    .catch(error => {
+      console.error("try again", error);
+    });
+}, []);
 
   return (
     <main>
@@ -45,8 +47,8 @@ fetch(`${API_BASE_URL}/api/books`)
           </div>
 
           <div className="comic-cover">
-            {books.map((book) => (
-              <div key={book.id} className="comic-cover-space">
+            {dataBooks.map((book) => (
+              <div key={book._id} className="comic-cover-space">
                   <img src={`/images/${book.imageUrl}`} alt={book.title} />
                 <p>{book.title}</p>
                 <p>{book.author}</p>
