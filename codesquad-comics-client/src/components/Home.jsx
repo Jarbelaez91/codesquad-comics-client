@@ -3,11 +3,14 @@ import "../App.css";
 import books from "../data/books";
 import { useState, useEffect } from "react";
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
+
 function Home() {
   const [dataBooks, setDataBooks] = useState([]);
 
   useEffect(() => {
-    fetch ("https://course-project-codesquad-comics-server.onrender.com/api/books")
+fetch(`${API_BASE_URL}/api/books`)
     .then (res => res.json())
     .then (data => setDataBooks (data))
     .catch ((error) => {

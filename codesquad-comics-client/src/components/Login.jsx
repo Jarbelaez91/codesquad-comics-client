@@ -1,5 +1,9 @@
 import '../index.css'
 import { useNavigate } from "react-router-dom";
+
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
+
 function Login({ user, setUser }) {
   const navigate = useNavigate();
   const handleSubmit = (e) => {
@@ -10,9 +14,7 @@ function Login({ user, setUser }) {
       password: e.target.password.value,
     };
     console.log("form was submitted", body);
-    fetch(
-      "https://course-project-codesquad-comics-server.onrender.com/login/local",
-      {
+        fetch(`${API_BASE_URL}/login/local`,      {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),

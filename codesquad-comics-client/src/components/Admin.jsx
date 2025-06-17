@@ -1,6 +1,9 @@
 import books from "../data/books";
 import "../App.css";
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
+
 
 import { useState, useEffect } from "react";
 
@@ -8,7 +11,7 @@ function Admin() {
   const [dataBooks, setDataBooks] = useState([]);
 
   useEffect(() => {
-    fetch ("https://course-project-codesquad-comics-server.onrender.com/api/books")
+  fetch(`${API_BASE_URL}/api/books`)
     .then (res => res.json())
     .then (data => {
       console.log("Fetched data:", data);
@@ -20,7 +23,7 @@ function Admin() {
   }, []);
 
   const handleDelete = (bookId) => {
-    fetch (`https://course-project-codesquad-comics-server.onrender.com/api/books/delete/${bookId}`,{
+fetch(`${API_BASE_URL}/api/books/delete/${bookId}`, {
       method: "DELETE",
     })
     .then ((res) => res.json())

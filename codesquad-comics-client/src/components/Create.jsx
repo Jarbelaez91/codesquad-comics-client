@@ -2,6 +2,8 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "../App.css";
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 
 
 function Create() {
@@ -23,7 +25,7 @@ function Create() {
       "form was submitted",body
       );
       
-      fetch ("https://course-project-codesquad-comics-server.onrender.com/api/books/create", {
+     fetch(`${API_BASE_URL}/api/books/create`, {
         method: "POST",
     headers: {"Content-Type": "application/json"},
     body: JSON.stringify (body)})

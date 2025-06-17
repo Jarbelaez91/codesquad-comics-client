@@ -4,6 +4,8 @@ import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import "../App.css";
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 
 
 
@@ -15,7 +17,7 @@ function Update() {
   const [book, setBook] = useState({});
 
   useEffect(() => {
-    fetch (`https://course-project-codesquad-comics-server.onrender.com/api/books/${bookId}`)
+fetch(`${API_BASE_URL}/api/books/${bookId}`)
       .then((res) => res.json())
       .then ((result) => {
         console.log("success", result)
@@ -37,9 +39,7 @@ function Update() {
       rating: e.target.rating.value,
       pages: e.target.pages.value
   };
-  fetch(
-    "https://course-project-codesquad-comics-server.onrender.com/api/books/edit/${bookId}",
-    {
+fetch(`${API_BASE_URL}/api/books/edit/${bookId}`,    {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(body),

@@ -2,12 +2,14 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 // import "../App.css";
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
+
 function Header({ user, setUser }) {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    fetch(
-      "https://course-project-codesquad-comics-server.onrender.com/logout",
+    fetch(`${API_BASE_URL}/logout`,
       {
         method: "POST",
       }
